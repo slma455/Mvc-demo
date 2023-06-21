@@ -1,0 +1,88 @@
+﻿@model Instructor
+@{
+    ViewData["Title"] = "New";
+    SelectList deptItems = new SelectList(ViewBag.DeptList, "Id", "Name");
+    SelectList courseItems = new SelectList(ViewBag.CourseList, "Id", "Name");
+}
+
+
+<h1>New Instructor</h1>
+
+
+<form method="post" action="\Instructor\Save"  >
+   
+    <div>
+        <label>Instructor Name</label>
+
+
+        <input type="text" name="Name" id="Name" value="@Model?.Name" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="Dept_id">Department ID</label>
+
+        <select class="form-control" asp-for="Dept_id" id="Dept_id" asp-items="deptItems" onchange="GetCourse()">
+            <option value="0">Select Department</option>
+        </select>
+
+    </div>
+
+    <div>
+        <label asp-for="Crs_id ">Course ID</label>
+
+        <select class="form-control" asp-for="Crs_id " id="Crs_id">
+
+         </select>
+    </div>
+  
+    
+    <div>
+        <label>Image</label>
+        <input type="text" name="Image" id="Image" value="@Model?.Image" class="form-control" />
+    </div>
+    <div>
+        <label>Salary</label>
+        <input type="text" name="Salary" id="Salary" value="@Model?.Salary" class="form-control" />
+    </div>
+    <div>
+        <label>Adress</label>
+        <input type="text" name="Address" id="Address" value="@Model?.Address" class="form-control" />
+    </div>
+    
+    <input type="submit" value="Create" class="btn btn-primary" />
+
+
+
+
+</form>
+@section Scripts{
+
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script>
+        function GetCourse(){
+            var deptid = document.getElementById("Dept_id").value;
+            $.ajax({
+                url: "/Instructor/showCourse?deptId=" + deptid,
+                 success: function (result) {
+                    document.getElementById("Crs_id").innerHTML = "";
+                    for (let i of result) {
+                        document.getElementById("Crs_id").innerHTML +=
+                            "<option value='" + i.id + "'>" + i.name + "</option>"
+                    }
+
+                }
+            });
+
+
+       
+            //console.log(deptid);
+        }
+    </script>
+
+}
+
+
+
+
+
+
+

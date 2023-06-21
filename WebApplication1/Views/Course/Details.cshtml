@@ -1,0 +1,20 @@
+﻿@model InstructorDeptCourseViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container d-flex align-items-center justify-content-center ">
+    <h1 style="color:beige" class="text-center pe-5">Course Details</h1>
+    <div class="card  d-flex align-items-center justify-content-center" " style="width: 18rem; padding: 5px; color:saddlebrown; ">
+        <div class="card-body">
+
+            <p class="card-text">Course Name: @Model.Course_Name</p>
+            <p class="card-text">Course Degree: @Model.Degree</p>
+            <p class="card-text">Course Min Degree: @Model.minDegree</p>
+            <a href="/course/home" class="btn btn-primary">Back to All Courses</a>
+        </div>
+    </div>
+</div>
+
+
+

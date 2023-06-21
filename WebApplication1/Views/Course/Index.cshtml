@@ -1,0 +1,48 @@
+﻿<!--Tag helper-->
+@model Course
+@{
+    ViewData["Title"] = "Index";
+    SelectList deptItems = new SelectList(ViewBag.DeptList, "Id", "Name");
+}
+<h1>Add Course</h1>
+
+<form method="post" action="\Course\Save">
+    <div asp-validation-summary="All">
+        <!--ALL : Error Model Or not-->
+    </div>
+
+    <div>
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+
+    </div>
+    <div>
+        <label asp-for="Degree"></label>
+        <input class="form-control" asp-for="Degree" />
+        <span asp-validation-for="Degree" class="text-danger"></span>
+
+    </div>
+    <div>
+        <label asp-for="minDegree"></label>
+        <input class="form-control" asp-for="minDegree" />
+        <span asp-validation-for="minDegree" class="text-danger"></span>
+
+    </div>
+    <div>
+        <label asp-for="Dept_id"></label>
+        <select class="form-control" asp-for="Dept_id" asp-items="deptItems"></select>
+
+    </div>
+ 
+  
+    <input type="submit" value="create" class="btn btn-dark" />
+</form>
+
+<!-------------Js VAlidation Client side Library--------------->
+@section Scripts{
+    
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

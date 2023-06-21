@@ -1,0 +1,25 @@
+﻿@model List<TraineeCourseColor>
+@{
+    ViewData["Title"] = "showTrainee";
+}
+
+<h1>showTrainee</h1>
+<table class="table table-hover table-bordered">
+    <tr>
+
+        <th>Name</th>
+        <th>Course Name</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="color:@item.Color">
+            <td>@item.trainee_name</td>
+            <td>@item.crs_name</td>
+        </tr>
+
+    }
+
+</table>
+
+

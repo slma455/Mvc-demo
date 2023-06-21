@@ -1,0 +1,19 @@
+﻿@*
+<h1>@Model.Name</h1>
+<input type="hidden" value="@Model.ID" />
+<img src="\images\@Model.Image" />
+<h3>@Model.Price</h3>
+<p>@Model.Description.</p>*@
+
+@model Product
+<div class="card" style="width:200px">
+    <h3>@Model.ID</h3>
+
+    <img class="card-img-top" src="/images/@Model.Image" alt="Card image">
+    <div class="card-body">
+       <h4 class="card-title">@Model.Name</h4>
+        <h3>@Model.Price</h3>
+        <p class="card-text">@Model.Description</p>
+        <a  class="btn btn-primary" href="/product/GetAll">Back</a>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿@model TraineeCourseColor
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="container">
+    <h1>Trainee Details</h1>
+    <div class="card" style="color : @Model.Color">
+        <div class="card-body">
+            <h5 class="card-title">Trainee Name: @Model.trainee_name</h5>
+            <select>
+                @foreach (var item in Model.crs)
+                {
+                    <option>@item.Name</option>
+                  
+                }
+            </select>
+            <p class="card-text">Degree: @Model.degree</p>
+            <a href="/Trainee/View" class="btn btn-primary">Show Result </a>
+
+        </div>
+    </div>
+</div>
+
+

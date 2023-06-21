@@ -1,0 +1,20 @@
+﻿@model TraineeCourseColor
+@{
+    ViewData["Title"] = "showResult";
+}
+
+<h1>showResult</h1>
+
+<div class="container" style="color:@Model.Color">
+    <h1>Trainee Details</h1>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Trainee Name: @Model.trainee_name</h5>
+            <p class="card-text">Course NAME: @Model.crs_name</p>
+            <p class="card-text">Degree: @Model.degree</p>
+            <a href="/Trainee/View" class="btn btn-primary">back </a>
+
+        </div>
+    </div>
+</div>
+

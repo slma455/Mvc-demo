@@ -1,0 +1,28 @@
+﻿@model List<Product>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Price</td>
+        <td>photo</td>
+    </tr>
+
+
+
+
+@foreach (var item in Model)
+{
+   <tr>
+       <td>@item.ID</td>
+       <td>@item.Name</td>
+       <td>@item.Description</td>
+       <td>@item.Price</td>
+            <td>
+                <img class="card-img-top" src="/images/@item.Image" style="width:100px;height100px; " alt="Card image">
+            </td>
+
+   </tr>
+}
+</table>

@@ -1,0 +1,83 @@
+﻿@model Instructor
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<form method="post">
+    <div>
+        <label>Name</label>
+        <input value="@Model.Name" type="text" name="Name" id="Name" class="form-control" />
+    </div>
+   
+    <div>
+        <label>
+            Salary
+        </label>
+        <input value="@Model.Salary" type="text" name="Salary" id="Salary" class="form-control" />
+       </div>
+    <div>
+        <label>Address</label>
+        <input value="@Model.Address" type="text" name="Address" id="Address" class="form-control" />
+    </div>
+    <div>
+        <label>Image</label>
+        <input value="@Model.Image" type="text" name="Image" id="Image" class="form-control" />
+    </div>
+            <div>
+                <label>Course</label>
+        <select name="Crs_id">
+                @foreach ( Course courseItem in ViewBag.CourseList)
+                {
+                    if
+                    (Model.Crs_id == courseItem.Id)
+                    {
+                        <option value="@courseItem.Id" selected>
+                            @courseItem.Name
+                        </option>
+                    }
+                    else
+                    {
+                        <option value="@courseItem.Id">
+                            @courseItem.Name
+                        </option>
+                    }
+                }
+                </select>
+            </div>
+    <div>
+        <label>Department</label>
+        <select name="Dept_id">
+            @foreach (Department deptItem in ViewBag.DeptList)
+            {
+                if
+                (Model.Dept_id == deptItem.Id)
+                {
+                    <option value="@deptItem.Id" selected>
+                        @deptItem.Name
+                    </option>
+                }
+                else
+                {
+                    <option value="@deptItem.Id">
+                        @deptItem.Name
+                    </option>
+                }
+            }
+        </select>
+    </div>
+    <input type="submit" value="Save" />
+
+
+
+</form>
+
+@section Scriptss{
+
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}
+
